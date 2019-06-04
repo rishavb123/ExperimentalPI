@@ -15,7 +15,7 @@ function [experimentalPi, xs, ys, ins] = simulation(N, plotting=0)
         end;
     end;
 
-    if(plotting)
+    if plotting
         figure;
         circleX = 0:0.001:1;
         circleY = sqrt(1 - circleX .^ 2); 
