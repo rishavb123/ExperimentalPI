@@ -1,9 +1,11 @@
-function [pis] = convergencePlot(Ns = 1:100)
+function [pis, times] = convergencePlot(Ns = 1:100)
     pis = zeros(1, size(Ns, 2));
+    times = zeros(1, size(Ns, 2));
 
     for i=1:size(Ns, 2)
-        [experimentalPi, xs, ys, ins] = simulation(Ns(i));
+        [totalTime, experimentalPi] = simulationTimer(Ns(i));
         pis(i) = experimentalPi;
+        times(i) = totalTime;
     end;
 
     figure;
@@ -11,6 +13,13 @@ function [pis] = convergencePlot(Ns = 1:100)
     legend('Experimental Pis', 'Actual Pi', 'Average Experimental Pi');
     xlabel('Number of Iterations');
     ylabel('Experimental Pi');
+
+    figure;
+    plot(Ns, times, Ns, ones(1, size(Ns, 2)) * mean(times));
+    legend('Simulation Time', 'Average Simulation Time');
+    xlabel('Number of Iterations');
+    ylabel('Simulation Time');
+
 end;
 
 convergencePlot();

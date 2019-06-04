@@ -1,12 +1,12 @@
 function [totalTime, experimentalPi] = simulationTimer (N)
 
-    startTime = time()
+    t = time();
     % ------------------- CODE TO TIME HERE -----------------------------
 
     experimentalPi = fastSimulation(N);
 
     % -------------------------------------------------------------------
 
-    totalTime = time() - startTime;
+    totalTime = time() - t;
 
 end;
