@@ -20,7 +20,6 @@ function [theta, J_history] = gradientDescent(X, y, theta, alpha, num_iters)
         end
         
         gradient = gradient / m;
-        % gradient
 
         theta = theta - alpha * gradient;
 
